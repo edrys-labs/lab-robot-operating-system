@@ -1,0 +1,321 @@
+id: 53luQtLtLIUF7Xnn
+createdBy: 15sg55SsadoN
+dateCreated: 1713192447954
+name: Lab-ROS2-Humble (Basics)
+meta:
+  logo: https://raw.githubusercontent.com/edrys-labs/lab-robot-operating-system/main/media/logo.jpg
+  description: >-
+    Discover essential ROS 2 Humble commands with our step-by-step tutorial
+    designed for beginners! Learn how to create, navigate, and manage ROS 2
+    workspaces, packages, and nodes in a Linux environment. This easy-to-follow
+    guide will equip you with the fundamental skills needed to confidently use
+    ROS 2 for robotic development. Perfect for students and newcomers to
+    robotics and ROS 2.
+  selfAssign: true
+  defaultNumberOfRooms: 0
+members:
+  teacher: []
+  student: []
+modules:
+  - url: >-
+      https://raw.githubusercontent.com/edrys-labs/module-markdown-it/2.0.0/index.html
+    config: >-
+      # Welcome to Lab-ROS2-Humble-Basic
+
+      __Welcome to the ROS 2 Humble Basics tutorial.__
+
+      ROS 2 (Robot Operating System 2) is a flexible framework for writing robot
+      software. It's a collection of tools, libraries, and conventions that aim
+      to simplify the task of creating complex and robust robot behavior across
+      a wide variety of robotic platforms.
+
+      Here's why learning ROS 2 Humble is interesting:
+
+      1. **Industry Standard**:
+         ROS 2 is widely used in robotics research and industry, making it an essential skill for roboticists.
+
+      2. **Modular Design**:
+         ROS 2 allows you to build complex robotic systems by combining smaller, reusable components.
+
+      3. **Cross-Platform**:
+         It supports multiple operating systems and programming languages, offering flexibility in development.
+
+      4. **Rich Ecosystem**:
+         ROS 2 comes with a vast array of tools for simulation, visualization, and debugging.
+
+      5. **Community Support**:
+         There's a large, active community providing support, packages, and continuous improvements.
+
+      Learning ROS 2 Humble will give you the skills to develop sophisticated
+      robotic applications and contribute to cutting-edge robotics projects!
+
+      __Visit a station by clicking onto it and then explore the ROS 2
+      environment ;-)__
+    studentConfig: ''
+    teacherConfig: >-
+      ## Welcome for Teachers
+
+      > This can be used as a base laboratory to create further and more
+      elaborate labs with [edrys-Lite](https://edrys-labs.github.io).
+
+      > You are currently in the Lobby. If there is a station available you can
+      switch to it and try out the ROS 2 environment.
+
+      > Otherwise, if you are in teacher-mode you can share a lab by clicking
+      onto `setting` >> `station` and then by clicking the presented link,
+
+      > which is the same as the current link, but only with the word `station`
+      instead of `classroom`.
+    stationConfig: ''
+    showInCustom: lobby
+    width: full
+    height: huge
+  - url: https://edrys-labs.github.io/module-pyxtermjs/index.html
+    config: ''
+    studentConfig: ''
+    teacherConfig: ''
+    stationConfig:
+      server: http://localhost:5000/pty
+      execute: execute
+      script: echo $CODE | base64 --decode
+      enable:
+        teacher: true
+        student: true
+    showInCustom: station
+    width: full
+    height: huge
+  - url: >-
+      https://raw.githubusercontent.com/edrys-labs/module-markdown-it/2.0.0/index.html
+    config: >-
+      # Welcome to the ROS 2 Humble Station
+
+
+      **Step 1: Run a ROS 2 node**
+
+
+      ``` bash
+
+      ros2 run demo_nodes_cpp talker 
+
+      ```
+
+
+      This runs a simple talker node from the demo packages.
+
+
+      **Step 2: In a new terminal, run a listener node**
+
+
+      ```bash
+
+      ros2 run demo_nodes_cpp listener 
+
+      ```
+
+
+      This runs a listener node that will receive messages from the talker.
+
+
+      **Step 3: List all active nodes**
+
+
+      ```bash
+
+      ros2 node list
+
+      ```
+
+
+      This shows all currently running ROS 2 nodes.
+
+
+      **Step 4: List all topics**
+
+
+      ```bash
+
+      ros2 topic list
+
+      ```
+
+
+      This displays all active ROS 2 topics.
+
+
+      **Step 5: Echo messages on a topic**
+
+
+      ```bash
+
+      ros2 topic echo /chatter
+
+      ```
+
+
+      This will show the messages being published on the /chatter topic.
+
+
+      **Step 6: Get information about a node**
+
+
+      ```bash
+
+      ros2 node info /talker
+
+      ```
+
+
+      This provides detailed information about the talker node.
+
+
+      **Step 7: Launch a ROS 2 launch file**
+
+
+      ```bash
+
+      ros2 launch demo_nodes_cpp talker_listener.launch.py
+
+      ```
+
+
+      This launches both a talker and listener node using a launch file.
+
+
+      **Step 8: Use ROS 2 parameters**
+
+
+      ```bash
+
+      ros2 param list
+
+      ```
+
+
+      This lists all parameters of running nodes.
+
+
+      This tutorial takes you through basic ROS 2 Humble commands, from running
+      nodes and using core ROS 2 tools. Each step builds on the previous one,
+      helping you understand how these commands work in a real ROS 2 development
+      scenario.
+    studentConfig: ''
+    teacherConfig: ''
+    stationConfig: >-
+      ## Instructions for Station-Sharing 
+
+
+      You are currently responsible for sharing a station of this lab. You have
+      multiple options to share a ROS 2 Humble environment.
+
+      Therefor we use the pyxtermjs - terminal server from:
+
+
+      https://github.com/edrys-labs/module-pyxtermjs
+
+
+      ### Using Docker
+
+
+      If you haven't done it so far, install
+      [docker](https://docs.docker.com/engine/install/).
+
+      Or, follow one of the instruction-videos for your system:
+
+
+      <details>
+
+      <summary>Install Docker on Linux</summary>  
+
+      <iframe
+        style="width: 100%; aspect-ratio: 16 / 9"
+        src="https://www.youtube.com/embed/cqbh-RneBlk?si=juvUM5d2OSZ28WBv"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+      </details>
+
+
+      <details>
+
+      <summary>Install Docker on Windows</summary>
+
+      <iframe
+        style="width: 100%; aspect-ratio: 16 / 9"
+        src="https://www.youtube.com/embed/WDEdRmTCSs8?si=X0agStn1akNcZLGu"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+      </details>
+
+
+      <details>
+
+      <summary>Install Docker on MacOS</summary>
+
+      <iframe
+        style="width: 100%; aspect-ratio: 16 / 9"
+        src="https://www.youtube.com/embed/-EXlfSsP49A?si=OZ_l4_2hDKb6ULQ_"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+      </details>
+
+
+      ```bash
+
+      docker run -it --rm \
+        --name edrys-ros-humble-lab \
+        --network host \
+        -e LANG=en_US.UTF-8 \
+        -e LC_ALL=en_US.UTF-8 \
+        -e ROS_MASTER_URI=http://${hostname}:11311 \
+        -e ROS_HOSTNAME=edrys-ros-humble-lab \
+        crosslab/edrys_pyxtermjs_ros:latest
+      ```
+
+
+      Inside the container, install the necessary packages...
+
+
+      ### Using Python and your local ROS 2 Installation
+
+
+      You can also share your terminal directly via Python, visit the following
+      project
+
+
+      https://github.com/edrys-labs/module-pyxtermjs
+
+
+      ... the easiest way is to perform the following steps:
+
+
+      ``` bash
+
+      # 1. clone the repository or download the folder manually
+
+      git clone https://github.com/edrys-labs/module-pyxtermjs
+
+
+      # 2. install all required sources
+
+      pip3 install -r requirements.txt
+
+
+      # 3. run the terminal-server
+
+      python3 -m pyxtermjs --cors True --command bash --port 5000
+
+      ```
+
+      This will allow students to access the ROS 2 Humble environment through
+      the web interface.
+    showInCustom: station
+    width: half
+    height: huge

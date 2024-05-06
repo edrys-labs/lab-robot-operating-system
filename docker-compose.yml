@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  ros-humble-lab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #image: crosslab/edrys_pyxtermjs_ros:latest
+    container_name: edrys-ros-humble-lab
+    environment:
+      - LANG=en_US.UTF-8
+      - LC_ALL=en_US.UTF-8
+      # replace the docker internal host with your host ip
+      #- ROS_MASTER_URI=http://host.docker.internal:11311
+      - ROS_HOSTNAME=edrys-ros-humble-lab
+    network_mode: 'host'
+    tty: true
