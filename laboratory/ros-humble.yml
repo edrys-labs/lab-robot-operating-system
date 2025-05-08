@@ -17,8 +17,7 @@ members:
   teacher: []
   student: []
 modules:
-  - url: >-
-      https://raw.githubusercontent.com/edrys-labs/module-markdown-it/2.0.0/index.html
+  - url: https://edrys-labs.github.io/module-markdown-it/index.html
     config: 
       content: >-
         # Welcome to Lab-ROS2-Humble-Basic
@@ -88,8 +87,7 @@ modules:
     showInCustom: station
     width: full
     height: huge
-  - url: >-
-      https://raw.githubusercontent.com/edrys-labs/module-markdown-it/2.0.0/index.html
+  - url: https://edrys-labs.github.io/module-markdown-it/index.html
     config: 
       content: >-
         # Welcome to the ROS 2 Humble Station
