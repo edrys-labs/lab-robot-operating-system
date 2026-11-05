@@ -71,27 +71,13 @@ modules:
     showInCustom: lobby
     width: full
     height: huge
-  - url: https://edrys-labs.github.io/module-pyxtermjs/index.html
-    config: ''
-    studentConfig: ''
-    teacherConfig: ''
-    stationConfig:
-      server: http://localhost:5000/pty
-      execute: execute
-      script: echo $CODE | base64 --decode
-      enable:
-        teacher: true
-        student: true
-    showInCustom: station
-    width: full
-    height: huge
   - url: https://edrys-labs.github.io/module-markdown-it/index.html
     config: 
       content: >-
         # Welcome to the ROS 2 Humble Station
 
 
-        **Step 1: Run a ROS 2 node**
+        **Step 1: In the first terminal, run a ROS 2 node**
 
 
         ``` bash
@@ -101,10 +87,10 @@ modules:
         ```
 
 
-        This runs a simple talker node from the demo packages.
+        This runs a simple talker node from the demo packages. Leave it running.
 
 
-        **Step 2: In a new terminal, run a listener node**
+        **Step 2: In the second terminal, run a listener node**
 
 
         ```bash
@@ -114,10 +100,10 @@ modules:
         ```
 
 
-        This runs a listener node that will receive messages from the talker.
+        This runs a listener node that will receive messages from the talker. Stop it with Ctrl+C after a few messages; the talker keeps running.
 
 
-        **Step 3: List all active nodes**
+        **Step 3: In the second terminal, list all active nodes**
 
 
         ```bash
@@ -153,7 +139,7 @@ modules:
         ```
 
 
-        This will show the messages being published on the /chatter topic.
+        This will show the messages being published on the /chatter topic. Stop it with Ctrl+C.
 
 
         **Step 6: Get information about a node**
@@ -169,7 +155,7 @@ modules:
         This provides detailed information about the talker node.
 
 
-        **Step 7: Launch a ROS 2 launch file**
+        **Step 7: Stop the talker in the first terminal with Ctrl+C, then launch a ROS 2 launch file there**
 
 
         ```bash
@@ -273,6 +259,13 @@ modules:
 
         ```bash
 
+        # build the image once
+
+        git clone https://github.com/edrys-labs/lab-robot-operating-system
+
+        docker build -t edrys-ros-humble-lab lab-robot-operating-system
+
+
         docker run -it --rm \
           --name edrys-ros-humble-lab \
           --network host \
@@ -280,7 +273,7 @@ modules:
           -e LC_ALL=en_US.UTF-8 \
           -e ROS_MASTER_URI=http://${hostname}:11311 \
           -e ROS_HOSTNAME=edrys-ros-humble-lab \
-          crosslab/edrys_pyxtermjs_ros:latest
+          edrys-ros-humble-lab
         ```
 
 
@@ -323,3 +316,31 @@ modules:
     showInCustom: station
     width: half
     height: huge
+  - url: https://edrys-labs.github.io/module-pyxtermjs/index.html
+    config: ''
+    studentConfig: ''
+    teacherConfig: ''
+    stationConfig:
+      server: http://localhost:5000/pty
+      execute: execute
+      script: echo $CODE | base64 --decode
+      enable:
+        teacher: true
+        student: true
+    showInCustom: station
+    width: half
+    height: medium
+  - url: https://edrys-labs.github.io/module-pyxtermjs/index.html
+    config: ''
+    studentConfig: ''
+    teacherConfig: ''
+    stationConfig:
+      server: http://localhost:5000/pty
+      execute: execute2
+      script: echo $CODE | base64 --decode
+      enable:
+        teacher: true
+        student: true
+    showInCustom: station
+    width: half
+    height: medium

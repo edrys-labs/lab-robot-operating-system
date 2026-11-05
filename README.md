@@ -32,8 +32,16 @@ then simply copy the lab-config URL and import the lab configuration:
 
 ## Stations
 
-The module-pyxtermjs does require a terminal-server with access to a ROS 2 environment. This project contains a working docker and docker-compose configuration to start a ROS 2 environment with a terminal-server.
-However, you can also use the following docker command to start the terminal server immediately:
+The module-pyxtermjs does require a terminal-server with access to a ROS 2 environment. This project contains a Dockerfile and a docker-compose configuration that build a ROS 2 Humble environment on top of the [module-pyxtermjs](https://github.com/edrys-labs/module-pyxtermjs) terminal server image.
+
+Build the image once:
+
+```bash
+git clone https://github.com/edrys-labs/lab-robot-operating-system
+docker build -t edrys-ros-humble-lab lab-robot-operating-system
+```
+
+Then start the terminal server (or use `docker compose up` in this folder):
 
 ```bash
 docker run -it --rm \
@@ -42,7 +50,7 @@ docker run -it --rm \
   -e LANG=en_US.UTF-8 \
   -e LC_ALL=en_US.UTF-8 \
   -e ROS_HOSTNAME=edrys-ros-humble-lab \
-  crosslab/edrys_pyxtermjs_ros:latest
+  edrys-ros-humble-lab
 ```
 
 If you want to connect your local ROS environment with the one in the terminal-server, you can use the following command, then add a `ROS_MASTER_URI`, which can be found by using the command `hostname` if you are also running the station and the ros-master on the same machine. Otherwise, you need to replace the hostname with the appropriate IP address manually.
@@ -55,7 +63,7 @@ docker run -it --rm \
   -e LC_ALL=en_US.UTF-8 \
   -e ROS_MASTER_URI=http://${hostname}:11311 \
   -e ROS_HOSTNAME=edrys-ros-humble-lab \
-  crosslab/edrys_pyxtermjs_ros:latest
+  edrys-ros-humble-lab
 ```
 
 more information can be found in the teacher-settings in the lab itself.

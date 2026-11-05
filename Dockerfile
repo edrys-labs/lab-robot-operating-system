@@ -1,4 +1,4 @@
-FROM crosslab/edrys_pyxtermjs:latest
+FROM edryslabs/module-pyxtermjs:base
 
 # change the user, so that the packages can be installed on top of edrys_pyxtermjs
 USER root
@@ -26,17 +26,6 @@ RUN echo "source /opt/ros/humble/setup.zsh" >> /home/appuser/.zshrc
 # Fix zsh warnings about the completion directory
 SHELL ["/bin/zsh", "-c"]
 RUN ZSH_DISABLE_COMPFIX=true
-RUN chmod g-w,o-w /home/appuser/.oh-my-zsh/plugins/tig \
-    && chmod g-w,o-w /home/appuser/.oh-my-zsh/plugins/sudo \
-    && chmod g-w,o-w /home/appuser/.oh-my-zsh/plugins/npm \
-    && chmod g-w,o-w /home/appuser/.oh-my-zsh/plugins/mix \
-    && chmod g-w,o-w /home/appuser/.oh-my-zsh/plugins/gitignore \
-    && chmod g-w,o-w /home/appuser/.oh-my-zsh/plugins/git-extras \
-    && chmod g-w,o-w /home/appuser/.oh-my-zsh/plugins/git \
-    && chmod g-w,o-w /home/appuser/.oh-my-zsh/plugins/docker-machine \
-    && chmod g-w,o-w /home/appuser/.oh-my-zsh/plugins/docker-compose \
-    && chmod g-w,o-w /home/appuser/.oh-my-zsh/plugins/docker \
-    && chmod g-w,o-w /home/appuser/.oh-my-zsh/plugins
 
 # get back to the default appuser
 USER appuser
